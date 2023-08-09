@@ -12,4 +12,3 @@ This project is the 4th project in Udacity Front end course, which helps us to e
 - Run development environment; terminal command line - `npm run build-dev`
 - Run JEST testing; terminal command line - `npm test`
 - Run production environment and build/update dist folder; terminal command line - `npm run build-prod`
-- Run local server (http://localhost:8081/); terminal command line - `npm run start`
