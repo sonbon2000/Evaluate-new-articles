@@ -25,7 +25,7 @@ app.listen(8080, function () {
   console.log("Example app listening on port 8080!");
 });
 
-app.post("/testApi", function (req, res, next) {
+app.post("/testApi", function (req, res) {
   try {
     const data = textapi.sentiment(
       {
