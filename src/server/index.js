@@ -1,6 +1,8 @@
 var path = require("path");
 const express = require("express");
+const cors = require("cors");
 const mockAPIResponse = require("./mockAPI.js");
+
 // Require the Aylien npm package
 const aylien = require("aylien_textapi");
 const dotenv = require("dotenv");
@@ -13,6 +15,8 @@ const textapi = new aylien({
 });
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.static("dist"));
 
