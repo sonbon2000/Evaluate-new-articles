@@ -10,8 +10,8 @@ dotenv.config();
 
 // You could call it aylienapi, or anything else
 const textapi = new aylien({
-  application_id: process.env.API_ID,
-  application_key: process.env.API_KEY,
+  application_id: `${process.env.API_ID}`,
+  application_key: `${process.env.API_KEY}`,
 });
 
 const app = express();
