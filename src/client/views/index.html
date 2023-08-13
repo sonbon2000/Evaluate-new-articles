@@ -1,53 +1,65 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Test</title>
+    <title>Natural Language Processing App</title>
+    <meta
+      name="Natural Language Processing App"
+      content="Evaluate a news article with Aylien NLP API."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header>
-      <div class="">Logo</div>
-      <div class="">navigation</div>
-    </header>
-
-    <main>
-      <section>
-        <form class="" onsubmit="return handleSubmit(event)">
+    <div class="container">
+      <form id="contact" action="" method="post">
+        <h4>Natural Language Processing App</h4>
+        <fieldset>
           <input
-            id="name"
+            placeholder="Enter URL here"
             type="text"
-            name="input"
-            value=""
-            onblur="onBlur()"
-            placeholder="Name"
+            tabindex="1"
+            autofocus
+            id="url-input"
           />
-          <input
+        </fieldset>
+
+        <fieldset>
+          <button
+            name="submit"
             type="submit"
-            name=""
-            value="submit"
-            onclick="return handleSubmit(event)"
-            onsubmit="return handleSubmit(event)"
-          />
-        </form>
-      </section>
-
-      <section>
-        <strong>Form Results:</strong>
-        <div id="results"></div>
-      </section>
-    </main>
-
-    <footer>
-      <p>This is a footer</p>
-    </footer>
+            id="contact-submit"
+            data-submit="...Sending"
+          >
+            Submit
+          </button>
+        </fieldset>
+        <fieldset>
+          <textarea
+            placeholder="Form result...."
+            tabindex="5"
+            id="form-result"
+          ></textarea>
+        </fieldset>
+      </form>
+    </div>
 
     <script>
-      // Check service workers
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/service-worker.js");
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((registration) => {
+              console.log("SW register success: ", registration);
+            });
         });
+      } else {
+        console.log("Service Working not supported");
       }
     </script>
   </body>

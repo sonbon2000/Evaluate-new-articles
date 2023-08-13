@@ -1,22 +1,27 @@
-function handleSubmit(event) {
+export function handleSubmit(event) {
   event.preventDefault();
-  // check what text was put into the form field
-  const formText = document.getElementById("name").value;
-  const results = document.querySelector("#results");
-  Client.checkForName(formText);
-  console.log("::: Form Submitted :::");
 
-  let data = {
-    text: formText,
-  };
+  let urlInput = document.querySelector("#url-input").value;
+  let formResult = document.querySelector("#form-result");
 
-  fetch("http://localhost:8080/testApi", {
+  fetch("http://localhost:8080/testing", {
     method: "POST",
-    body: JSON.stringify(data),
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ urlInput }),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      return res.json();
+    })
+
     .then((data) => {
-      results.textContent = data.text;
+      if (data.validation != null) {
+        formResult.innerHTML = "";
+      } else {
+        formResult.innerHTML = `<p>Popularity: ${data.polarity}</p>`;
+        formResult.innerHTML = `<p>Text: ${data.text}</p>`;
+      }
     });
 }
-export { handleSubmit };

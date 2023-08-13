@@ -1,4 +1,4 @@
-import { handleSubmit } from "../client/js/formHandler";
+import { handleSubmit } from "../js/formHandler";
 
 describe('Test the function "handleSubmit()" to be define', () => {
   test("It should return true", async () => {
